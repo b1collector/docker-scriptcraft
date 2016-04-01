@@ -16,13 +16,15 @@ add server.cfg /opt/minecraft/config/server.cfg
 add default_NORMAL.cfg /opt/minecraft/config/worlds/default/default_NORMAL.cfg
 
 # a default ssh access to upload js 
-add sshd_config /etc/ssh/sshd_config
-run mkdir -p /opt/minecraft/scriptcraft/players/
-run echo "root:minecraft" | chpasswd
+# add sshd_config /etc/ssh/sshd_config
+# run mkdir -p /opt/minecraft/scriptcraft/players/
+# run echo "root:minecraft" | chpasswd
 
 add start /start
 run chmod +x /start
 
-expose 25565 22
+#expose 25565 22
+expose 25565
+
 volume ["/minecraft/"]
 cmd /start
