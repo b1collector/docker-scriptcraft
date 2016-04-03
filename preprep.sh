@@ -12,8 +12,8 @@ swapon /swapfile
 sh -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
 
 # configure firewall
-# ufw allow ssh
-# ufw allow 25565/tcp
+ufw allow ssh
+ufw allow 25565/tcp
 
 # build the docker file
 docker build -t b1collector/scriptcraft .
