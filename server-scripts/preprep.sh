@@ -5,11 +5,14 @@
 # apt-get upgrade
 
 # set a swap file
-fallocate -l 2G /swapfile
+fallocate -l 4G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile
-sh -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
+# sh -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
+
+sysctl vm.swappiness=10
+# sh -c 'echo "vm.swappiness=10" >> /etc/sysctl.conf'
 
 # configure firewall
 ufw allow ssh
